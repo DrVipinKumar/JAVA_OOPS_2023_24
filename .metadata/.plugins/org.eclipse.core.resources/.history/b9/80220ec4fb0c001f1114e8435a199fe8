@@ -1,0 +1,46 @@
+package interfacepkg;
+
+interface Rectangle {
+	void getArea();
+}
+interface Circle {
+	void getArea();
+}
+interface Area extends Rectangle, Circle{
+	void getArea();
+}
+
+class Shape implements Rectangle,Circle {
+
+	int l,b;
+	int r;
+	Shape(int l, int b){
+		this.l=l;
+		this.b=b;
+	}
+	Shape(int r){
+		this.r=r;
+	}
+	@Override
+	public void getArea() {
+		// TODO Auto-generated method stub
+		System.out.println(this.getClass().getSuperclass());
+		if(this instanceof Rectangle) {
+			System.out.println("Area of Rectangle="+(l*b));
+		} else if(this instanceof Circle) {
+			System.out.println("Area of Circle="+(Math.PI*r*r));
+		}
+	}
+	
+}
+public class AreaMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+            Rectangle s1= (Rectangle) new Shape(2,5);
+            ((Rectangle) s1).getArea();
+            Circle s2=(Circle) new Shape(23);
+            ((Circle) s2).getArea();
+	}
+
+}

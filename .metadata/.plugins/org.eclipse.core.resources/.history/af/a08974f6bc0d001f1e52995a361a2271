@@ -1,0 +1,25 @@
+package innernestedclass;
+class Calculator{
+	int num1, num2;
+	class Sum {
+		int num2;
+		Sum(int n1, int n2){
+			num1=n1;
+			//num2=n2;
+		}
+		void getSum() {
+			System.out.println("Sum="+(num1+num2));
+		}
+	}	
+}
+
+public class InnerClassMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//		Calculator c=new Calculator();
+        Calculator.Sum s1=new Calculator().new Sum(23, 34);
+          s1.getSum();
+	}
+
+}

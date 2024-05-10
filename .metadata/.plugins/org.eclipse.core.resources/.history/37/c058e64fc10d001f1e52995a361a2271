@@ -1,0 +1,10 @@
+package innernestedclass;
+
+public class InnerInterMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

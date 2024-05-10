@@ -1,0 +1,17 @@
+package interfacepkg;
+
+interface Calc {
+	int num1=10;
+	int getSum(int n1, int n2);
+	int getMul(int n1, int n2);
+}
+
+
+public class InterfaceMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        System.out.println(Calc.num1);
+	}
+
+}
