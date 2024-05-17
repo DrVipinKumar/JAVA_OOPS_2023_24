@@ -1,0 +1,17 @@
+package exceptionpkg;
+
+class DivideBy {
+	int num1, num2;
+	DivideBy(int num1, int num2){
+		this.num1=num1;
+		this.num2.num2;
+		}
+}
+public class ExceptionMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
