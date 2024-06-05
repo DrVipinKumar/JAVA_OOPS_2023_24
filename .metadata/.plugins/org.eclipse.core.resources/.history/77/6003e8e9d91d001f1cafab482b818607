@@ -1,0 +1,28 @@
+package iopackage;
+
+import java.io.File;
+class ListFile{
+	void displayFile(String path) {
+		 File dir=new File(path);
+	        File [] files=dir.listFiles();
+	        for(File f:files) {
+	        	checkDir(f);
+	        }
+	}
+	void checkDir(File f) {
+		if (f.isFile())
+		{
+			System.out.println("\nPath:\t"+f.getName()+"\nType:\tFile\n"+f.getTotalSpace()/(1024*1024));
+		} else {
+			System.out.println("\nPath:\t"+f.getName()+"\nType:\tDirectory\n"+f.getTotalSpace()/(1024*1024));
+		}
+	}
+}
+public class MyDir {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+       new ListFile().displayFile("src");
+	}
+
+}

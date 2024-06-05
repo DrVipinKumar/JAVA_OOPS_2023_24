@@ -1,0 +1,48 @@
+package netpkg;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.ConnectException;
+import java.net.InetAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+class Client {
+	   Socket s;
+	   String data;
+	   PrintWriter out;
+	   Boolean check=true;
+	   BufferedReader MsgToServer=new BufferedReader(new InputStreamReader(System.in));
+	   BufferedReader MsgByServer;
+	   Client(){
+	    try {
+	    	s =new Socket(InetAddress.getLocalHost(),9999);
+	    	System.out.println("Connecting with Server on Port 9999");
+	 		if(s!=null)
+	 		{
+	 		   System.out.println("Connected with Server on Port 9999");
+	 		   out=new PrintWriter(s.getOutputStream(),true);
+	 		   MsgByServer=new BufferedReader(new InputStreamReader(s.getInputStream()));
+	 		   while(check){
+	 			 System.out.println("<<");
+		 		 data=MsgToServer.readLine();
+		 		 out.println(data);
+	 		  	 System.out.println("Server>>"+MsgByServer.readLine());	 			 
+	 		}		 
+	 	}
+	    }catch(ConnectException cn) {
+	    	System.out.println("Server not running on Port 9999");
+	    	
+	    }catch(IOException io) {
+	    	io.printStackTrace();
+	    }
+	   }
+}
+	class ChatClient {
+
+	public static void main(String args[]){
+	    new Client();
+		}
+	}

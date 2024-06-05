@@ -1,0 +1,5 @@
+package netpkg;
+
+public class ChatClient {
+
+}
