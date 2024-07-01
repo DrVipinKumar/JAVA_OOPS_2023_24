@@ -1,0 +1,22 @@
+package javaGUI;
+
+import javax.swing.JFrame;
+
+class JFrameKeyMouse extends JFrame {
+	
+	  JFrameKeyMouse()
+	  {
+		  this.setSize(1000,600);
+		  this.setLocationRelativeTo(null);
+		  this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		  this.setVisible(true);
+	  }
+}
+public class KeyBoardEventEx {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+           new JFrameKeyMouse();
+	}
+
+}

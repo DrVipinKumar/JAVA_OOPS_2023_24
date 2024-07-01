@@ -1,0 +1,24 @@
+package javaGUI;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+class LayoutClass extends JFrame {
+	JButton b1,b2,b3,b4,b5;
+	
+	LayoutClass(){
+		
+		this.setSize(600, 4);
+		this.setLocationRelativeTo(null);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setVisible(true);
+	}
+}
+public class LayoutEx {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+           new  LayoutClass();
+	}
+
+}
