@@ -1,0 +1,83 @@
+package javaGUI;
+
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+class Notepad extends JFrame {
+	JTextArea text;
+	JFrame thisRef=this;
+	JMenuBar menuBar;
+	JMenu file,edit,about;
+	JMenuItem fileNew,fileSave,fileOpen,editCut,editCopy,editPaste;
+	Notepad(){
+		text=new JTextArea();
+		menuBar=new JMenuBar();
+		this.setJMenuBar(menuBar);
+		file=new JMenu("File");
+		file.setMnemonic(KeyEvent.VK_F);
+		edit=new JMenu("Edit");
+		edit.setMnemonic(KeyEvent.VK_E);
+		about=new JMenu("About");
+		about.setMnemonic(KeyEvent.VK_A);
+		about.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				JOptionPane.showMessageDialog(null, "hello");
+			}});
+		menuBar.add(file);
+		fileNew=new JMenuItem("New");
+		fileNew.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				text.setText("");
+			    thisRef.setTitle("Document1.txt");
+			}
+			
+		});
+		fileSave=new JMenuItem("Save");
+		fileSave.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				JFileChooser file=new JFileChooser();
+				FileNameExtensionFilter filter=new FileNameExtensionFilter("Text File(*.txt)",".txt");
+			}});
+		fileOpen=new JMenuItem("Open");
+		file.add(fileNew);
+		file.add(fileSave);
+		file.add(fileOpen);
+		menuBar.add(edit);
+		menuBar.add(about);
+		this.add(text);
+		this.setTitle("Document.txt");
+		this.setSize(1000,600);
+		this.setLocationRelativeTo(null);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setVisible(true);
+	}
+}
+public class NotepadEx {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+           new Notepad();
+	}
+
+}

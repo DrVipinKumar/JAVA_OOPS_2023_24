@@ -1,0 +1,54 @@
+package javaGUI;
+
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
+import javax.swing.KeyStroke;
+
+class Notepad extends JFrame {
+	JTextArea text;
+	JMenuBar menuBar;
+	JMenu file,edit,about;
+	JMenuItem fileNew,FileSave,FileOpen,editCut,editCopy,editPaste;
+	Notepad(){
+		text=new JTextArea();
+		menuBar=new JMenuBar();
+		this.setJMenuBar(menuBar);
+		file=new JMenu("File");
+		file.setMnemonic(KeyEvent.VK_F);
+		edit=new JMenu("Edit");
+		edit.setMnemonic(KeyEvent.VK_E);
+		about=new JMenu("About");
+		about.setMnemonic(KeyEvent.VK_A);
+		about.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				JOptionPane.showMessageDialog(text, "Dr. Vipin Classes");
+			}});
+		menuBar.add(file);
+		menuBar.add(edit);
+		menuBar.add(about);
+		this.add(text);
+		this.setSize(1000,600);
+		this.setLocationRelativeTo(null);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setVisible(true);
+	}
+}
+public class NotepadEx {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+           new Notepad();
+	}
+
+}

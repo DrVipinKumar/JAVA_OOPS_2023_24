@@ -1,0 +1,38 @@
+package javaGUI;
+
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JTextArea;
+
+class Notepad extends JFrame {
+	JTextArea text;
+	JMenuBar menuBar;
+	JMenu file,edit,about;
+	JMenuItem fileNew,FileSave,FileOpen,editCut,editCopy,editPaste;
+	Notepad(){
+		text=new JTextArea();
+		menuBar=new JMenuBar();
+		this.setJMenuBar(menuBar);
+		file=new JMenu("File");
+		edit=new JMenu("Edit");
+		about=new JMenu("About");
+		menuBar.add(file);
+		menuBar.add(edit);
+		menuBar.add(about);
+		this.add(text);
+		this.setSize(1000,600);
+		this.setLocationRelativeTo(null);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setVisible(true);
+	}
+}
+public class NotepadEx {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+           new Notepad();
+	}
+
+}
